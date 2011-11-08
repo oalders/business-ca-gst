@@ -4,6 +4,7 @@ use warnings;
 package Business::CA::GST;
 
 use Moose;
+use Carp qw( croak );
 
 my %TAX = (
     AB => { rate => 0.05, type => 'GST' },
@@ -44,7 +45,7 @@ sub _validate_region {
     my $self = shift;
 
     if ( !exists $TAX{ $self->buyer_region } ) {
-        die "invalid buyer_region: " . $self->buyer_region;
+        croak "invalid buyer_region: " . $self->buyer_region;
     }
 
     return 1;
