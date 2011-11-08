@@ -21,9 +21,7 @@ my %TAX = (
     NU => { rate => 0.05, type => 'GST' },
 );
 
-has 'buyer_region' => (
-    is   => 'rw',
-);
+has 'buyer_region' => ( is => 'rw', );
 
 sub rate {
 
@@ -32,7 +30,6 @@ sub rate {
     return $TAX{ $self->buyer_region }->{rate};
 
 }
-
 
 sub tax_type {
 
@@ -43,15 +40,15 @@ sub tax_type {
 }
 
 sub _validate_region {
-    
+
     my $self = shift;
-    
+
     if ( !exists $TAX{ $self->buyer_region } ) {
         die "invalid buyer_region: " . $self->buyer_region;
     }
-    
+
     return 1;
-    
+
 }
 
 # ABSTRACT: Look up Canadian Federal Sales Tax rates
