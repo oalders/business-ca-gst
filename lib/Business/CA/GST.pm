@@ -52,22 +52,28 @@ sub _validate_region {
 
 }
 
+__PACKAGE__->meta->make_immutable;
+
+1;
+
 # ABSTRACT: Look up Canadian Federal Sales Tax rates
 
 =head1 SYNOPSIS
+
+    use Business::CA::GST
+    my $tax = Business::CA::GST->new;
+    $tax->buyer_region('ON');
+
+    print $tax->rate, "\n";     # gives 0.13
+    print $tax->tax_type, "\n"; # gives 'HST'
+
+=head1 DESCRIPTION
 
 A tax table for Canadian GST/HST payments. Actual tax calculations are left as
 an exercise for the reader. Please see
 L<http://en.wikipedia.org/wiki/Sales_taxes_in_Canada> for a more detailed
 explanation of how GST and HST works (it's not as simple as one might hope).
 
-    use Business::CA::GST
-    my $tax = Business::CA::GST->new;
-    $tax->buyer_region('ON');
-    
-    print $tax->rate, "\n";     # gives 0.13
-    print $tax->tax_type, "\n"; # gives 'HST'
-    
 =head1 CONSTRUCTOR AND STARTUP
 
 =head2 new( buyer_region => $region )
@@ -78,16 +84,16 @@ Creates and returns a new Business::CA::GST object.
 
 =over 4
 
-=item * C<< buyer_region => $region_code >>
+=item C<< buyer_region => $region_code >>
 
-You may pass this parameter to new(), and/or you may use the buyer_region() 
+You may pass this parameter to new(), and/or you may use the buyer_region()
 method after having created the object. See the buyer_region() documentation
 below for a list of allowable region codes.
 
     my $tax = Business::CA::GST->new( buyer_region => $region_code );
-    
+
 =back
-    
+
 =head1 SUBROUTINES/METHODS
 
 =head2 buyer_region( $region )
@@ -116,25 +122,17 @@ You can also look for information at:
 
 =over 4
 
-=item * GitHub Source Repository
+=item Source code
 
 L<http://github.com/oalders/business-ca-gst>
 
-=item * RT: CPAN's request tracker
+=item Bugs and Requests
 
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=business-ca-gst>
 
-=item * AnnoCPAN: Annotated CPAN documentation
+=item Search CPAN
 
-L<http://annocpan.org/dist/business-ca-gst>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/business-ca-gst>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/business-ca-gst/>
+L<https://metacpan.org/module/Business::CA::GST>
 
 =back
 
@@ -144,8 +142,3 @@ Thanks to Raybec Communications L<http://www.raybec.com> for funding my
 work on this module and for releasing it to the world.
 
 =cut
-
-__PACKAGE__->meta->make_immutable;
-no Moose;
-
-1;
