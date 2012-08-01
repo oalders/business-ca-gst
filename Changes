@@ -1,4 +1,7 @@
-Revision history for Business-CA-GST 
+Revision history for Business-CA-GST
+
+1.00    2012-07-31
+        - Fixes test failures under 5.17.x
 
 0.02    2010-07-15
         - Fixed repository URL
