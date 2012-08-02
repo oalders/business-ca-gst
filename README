@@ -2,7 +2,7 @@ NAME
     Business::CA::GST - Look up Canadian Federal Sales Tax rates
 
 VERSION
-    version 1.00
+    version 1.01
 
 SYNOPSIS
         use Business::CA::GST
