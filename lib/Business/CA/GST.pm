@@ -8,7 +8,7 @@ use Carp qw( croak );
 
 my %TAX = (
     AB => { rate => 0.05, type => 'GST' },
-    BC => { rate => 0.12, type => 'HST' },
+    BC => { rate => 0.12, type => 'GST' },
     MB => { rate => 0.05, type => 'GST' },
     NB => { rate => 0.13, type => 'HST' },
     NL => { rate => 0.13, type => 'HST' },
