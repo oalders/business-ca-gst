@@ -1,9 +1,11 @@
 use strict;
 use warnings;
 
+use 5.006;
+
 package Business::CA::GST;
 
-use Moose;
+use Moo;
 use Carp qw( croak );
 
 my %TAX = (
@@ -25,23 +27,20 @@ my %TAX = (
 has 'buyer_region' => ( is => 'rw', );
 
 sub rate {
-
     my $self = shift;
+
     $self->_validate_region;
     return $TAX{ $self->buyer_region }->{rate};
-
 }
 
 sub tax_type {
-
     my $self = shift;
+
     $self->_validate_region;
     return $TAX{ $self->buyer_region }->{type};
-
 }
 
 sub _validate_region {
-
     my $self = shift;
 
     if ( !exists $TAX{ $self->buyer_region } ) {
@@ -49,7 +48,6 @@ sub _validate_region {
     }
 
     return 1;
-
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -117,7 +115,6 @@ You can find documentation for this module with the perldoc command.
 
     perldoc Business::CA::GST
 
-
 You can also look for information at:
 
 =over 4
@@ -125,10 +122,6 @@ You can also look for information at:
 =item Source code
 
 L<http://github.com/oalders/business-ca-gst>
-
-=item Bugs and Requests
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=business-ca-gst>
 
 =item Search CPAN
 
