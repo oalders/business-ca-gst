@@ -2,7 +2,7 @@ NAME
     Business::CA::GST - Look up Canadian Federal Sales Tax rates
 
 VERSION
-    version 1.02
+    version 1.03
 
 SYNOPSIS
         use Business::CA::GST
@@ -55,9 +55,6 @@ SUPPORT
 
     Source code
         <http://github.com/oalders/business-ca-gst>
-
-    Bugs and Requests
-        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=business-ca-gst>
 
     Search CPAN
         <https://metacpan.org/module/Business::CA::GST>
